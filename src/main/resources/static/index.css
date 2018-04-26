@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+.pagestyle{
+	background-color: linen;
+	margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+}
+
+table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    margin-top: 50px;
+    margin-left: 420px;
+    background-color: yellow;
+}
+
+th, td {
+     padding: 10px; 
+}
+th {
+   /*  text-align: left; */
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 20px;
+  cursor: pointer;
+  text-align: center;
+  text-decoration: none;
+  outline: none;
+  color: #fff;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 15px;
+  align:"center"
+  /* box-shadow: 0 9px #999; */
+}

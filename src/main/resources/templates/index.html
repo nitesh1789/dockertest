@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"></meta>
+<link rel="StyleSheet" href="../index.css" type="text/css"></link>
+<title>Insert title here</title>
+</head>
+<script>
+function myFunction() {
+    var x, text;
+	alert("welcome");
+    // Get the value of the input field with id="numb"
+    x = document.getElementById("username").value;
+    y = document.getElementById("password").value;
+    // If x is Not a Number or less than one or greater than 10
+   /*  x=form.Username.value;
+    x=form.password.value; */
+    var dataObject = JSON.stringify({
+                    'username':x,
+                    'password':y ,
+                });
+    alert(dataObject);
+    $.ajax({
+        type: "POST",
+        contentType: "application/json",
+        url: "http://localhost:8080/first",
+        data: dataObject,
+         dataType: 'json', 
+        success: function (data) {
+        	alert( response );
+           /*  var json = "<h4>Ajax Response</h4><pre>"
+                + JSON.stringify(data) + "</pre>";
+            $('#feedback').html(json);
+
+            console.log("SUCCESS : ", data);
+            $("#btn-search").prop("disabled", false);
+ */window.location.href = "/templates/home.html";
+        },
+        error: function (e) {
+
+            var json = "<h4>Ajax Response</h4><pre>"
+                + e.responseText + "</pre>";
+            $('#feedback').html(json);
+
+            console.log("ERROR : ", e);
+            $("#btn-search").prop("disabled", false);
+
+        }
+    });
+
+}
+</script>
+<body  class="pagestyle">
+<h1 style="color:blue;margin-left:400px;">welcome to spring boot</h1>
+<form name="login">
+<table>
+	<tr><th>Name</th>
+	<th><input style="width:150px;" type="Username" name="Username" id="username" value=""></input></th></tr>
+    <tr><th>Password</th>
+    <th><input style="width:150px;" type="password" name="password" id="password" value=""></input></th></tr>
+   <tr><th colspan="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="button" name="submit" value="Login" onclick="myFunction()"></input></th></tr>
+</table>
+</form>
+</body>
+</html>
